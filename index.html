@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <title>Library</title>
+    </head>
+    <body>
+        <h2>My Library</h2>
+        <button class="add" type="button">Add book</button>
+        <div class="books"></div>
+
+        <dialog>
+            <div class="dialog-content">
+                <h3>Add book</h3>
+                <form id="book-form">
+                    <div class="input-container">
+                        <label for="title">Book's title*:</label>
+                        <input type="text" name="title" id="title" required />
+                    </div>
+
+                    <div class="input-container">
+                        <label for="author">Book's author*:</label>
+                        <input type="text" name="author" id="author" required />
+                    </div>
+
+                    <div class="input-container">
+                        <label for="pages">Book's number of pages*:</label>
+                        <input type="number" name="pages" id="pages" required />
+                    </div>
+
+                    <div class="input-container">
+                        <label for="description">Book's description:</label>
+                        <textarea name="description" id="description" rows="5"></textarea>
+                    </div>
+
+                    <div class="input-container check">
+                        <label for="read">Did you read the book?:</label>
+                        <input type="checkbox" name="read" id="read" />
+                    </div>
+
+                    <div class="input-container check">
+                        <label for="peak">Peak?:</label>
+                        <div class="radios">
+                            <div>
+                                <label for="peakyes">Yes</label>
+                                <input type="radio" name="peak" id="peakyes" value="yes" />
+                            </div>
+
+                            <div>
+                                <label for="peakno">No</label>
+                                <input type="radio" name="peak" id="peakno" value="no" checked />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="cancel-button" type="button">Cancel</button>
+                        <button class="book-form-button" id="book-form">Add Book</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <script src="./script.js"></script>
+    </body>
+</html>
