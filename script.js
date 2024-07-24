@@ -79,6 +79,10 @@ const importNewBook = () => {
     allInputs.forEach((element) => {
         if (element.getAttribute('type') === 'checkbox') {
             newBook[element.getAttribute('name')] = element.checked;
+        } else if (element.getAttribute('type') === 'radio') {
+            if (element.checked) {
+                newBook[element.getAttribute('name')] = element.value;
+            }
         } else {
             newBook[element.getAttribute('name')] = element.value;
         }
