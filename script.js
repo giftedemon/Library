@@ -5,6 +5,17 @@ const cancelDialog = document.querySelector('.cancel-button');
 const addBookButton = document.querySelector('.book-form-button');
 const addBookForm = document.querySelector('#book-form');
 
+class Book {
+    constructor(title, author, description, pages, read, peak) {
+        this.title = title;
+        this.author = author;
+        this.description = description;
+        this.pages = pages;
+        this.read = read;
+        this.peak = peak;
+    }
+}
+
 const myLibrary = [
     new Book('Jujutsu Kaisen', 'Akutami Gege', 'My favourite manga', '1111', true, 'yes'),
     new Book('One Piece', 'Oda', 'Great Manga', '5000', true, 'yes'),
@@ -42,28 +53,19 @@ books.addEventListener('click', (e) => {
     if (e.target.classList.contains('complete-button')) {
         e.target.classList.toggle('completed');
 
-        e.target.textContent = e.target.classList.contains('completed') ? 'Completed' : 'Not completed';
+        e.target.textContent = e.target.classList.contains('completed')
+            ? 'Completed'
+            : 'Not completed';
 
-        e.target.parentNode.parentNode.querySelector('.read').textContent = e.target.classList.contains('completed')
-            ? 'Read'
-            : 'Not read';
+        e.target.parentNode.parentNode.querySelector('.read').textContent =
+            e.target.classList.contains('completed') ? 'Read' : 'Not read';
     } else if (e.target.classList.contains('delete')) {
         myLibrary.splice(Number(e.target.parentNode.parentNode.getAttribute('data-index')), 1);
         showBooks();
     }
 });
 
-// ----------------------- FUNCTIONS -------------------------------------
-
-// functions
-function Book(title, author, description, pages, read, peak) {
-    this.title = title;
-    this.author = author;
-    this.description = description;
-    this.pages = pages;
-    this.read = read;
-    this.peak = peak;
-}
+// ----------------------- FUNCTIONS ------------------------------------
 
 function addBookToLibrary(title, author, description, pages, read, peak) {
     const newBook = new Book(title, author, description, pages, read, peak);
